@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Róma Központ",
+    "coordinates": [12.4964, 41.9028]
+  },
+  {
+    "id": 2,
+    "name": "Vatikán",
+    "coordinates": [12.4534, 41.9029]
+  },
+  {
+    "id": 3,
+    "name": "Colosseum",
+    "coordinates": [12.4922, 41.8902]
+  }
+]
