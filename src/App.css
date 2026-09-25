@@ -7,12 +7,21 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    z-index: 1000;
+    z-index: 100;
     opacity: 0;
     pointer-events: none;
     transition: opacity 300ms ease-in-out;
+    align-items: center;
+    justify-content: center;
 }
 .overlay.open{
     opacity: 1;
     pointer-events: auto;
+}
+.popup-card{
+    width: 40%;
+    height: 40%;
+    border: 2px solid red;
+    background-color: #fff;
+    z-index: 120;
 }
