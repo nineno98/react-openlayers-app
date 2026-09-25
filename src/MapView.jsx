@@ -51,7 +51,6 @@ const MapView = () => {
         })
         );
 
-
         const markerSource = new VectorSource({
         features: features,
         });
