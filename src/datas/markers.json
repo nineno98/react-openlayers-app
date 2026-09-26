@@ -1,17 +1,23 @@
 [
   {
     "id": 1,
-    "name": "Róma Központ",
-    "coordinates": [12.4964, 41.9028]
+    "name": "Budapest",
+    "coordinates": [19.0402, 47.4979],
+    "icon": "█",
+    "image": "images/1.jpg"
   },
   {
     "id": 2,
-    "name": "Vatikán",
-    "coordinates": [12.4534, 41.9029]
+    "name": "Debrecen Nagyerdő",
+    "coordinates": [21.6318, 47.5511],
+    "icon": "▲",
+    "image": "images/2.jpg"
   },
   {
     "id": 3,
-    "name": "Colosseum",
-    "coordinates": [12.4922, 41.8902]
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "●",
+    "image": "images/3.jpg"
   }
 ]

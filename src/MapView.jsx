@@ -7,7 +7,7 @@ import 'ol/ol.css'
 import { fromLonLat } from 'ol/proj'
 import VectorLayer from 'ol/layer/Vector'
 import VectorSource from 'ol/source/Vector'
-import { Feature } from 'ol'
+import { Feature, Overlay } from 'ol'
 import { Point } from 'ol/geom'
 import Style from 'ol/style/Style'
 import Icon from 'ol/style/Icon'
@@ -20,6 +20,8 @@ const MapView = () => {
     const mapElement = useRef(null);
     const [activeData, setactiveData] = useState(null);
     useEffect(() => {
+
+        
         
         const features = markers.map((item) => {
             const feature = new Feature({
@@ -36,20 +38,6 @@ const MapView = () => {
             return feature;
         });
         
-        
-        const markerFeature = new Feature({
-            geometry: new Point(fromLonLat([12.5, 41.9])),
-        });
-
-
-        markerFeature.setStyle(
-        new Style({
-            image: new Icon({
-            color: "black",
-            src: viteLogo,
-            }),
-        })
-        );
 
         const markerSource = new VectorSource({
         features: features,
@@ -64,19 +52,54 @@ const MapView = () => {
 
         const map = new Map({
             target:mapElement.current,
-            layers: [baseMap, markerLayer],
+            layers: [baseMap],
             view: new View({
                 center:fromLonLat([21.6391, 47.5316]),
                 zoom: 9,
             }),
         });
 
+
+        
+        markers.map((item) => {
+            const markerDiv = document.createElement('div');
+            markerDiv.className = 'marker';
+
+            const icon = document.createElement('div');
+            icon.className='marker-icon';
+            icon.textContent=item.icon;
+            icon.style.fontSize='24px';
+            icon.style.color='black';
+
+            markerDiv.appendChild(icon);
+
+            markerDiv.addEventListener('click', (evt) => {
+                evt.stopPropagation();
+                
+                setactiveData({
+                    name:item.name,
+                    icon:item.icon
+
+                })
+            })
+
+            const overlay = new Overlay({
+                element: markerDiv,
+                positioning: 'center-center',
+                position: fromLonLat(item.coordinates),
+                stopEvent: false
+            });
+
+            map.addOverlay(overlay);
+        });
+
+        //****************************** */
+
         map.on('click', function(evt){
             const feature = map.forEachFeatureAtPixel(evt.pixel, function(feature){
                 return feature;
             });
             if(feature && typeof feature.getProperties === 'function'){
-                console.log("kattintva");
                 setactiveData({
                     name:feature.get('name'),
 
