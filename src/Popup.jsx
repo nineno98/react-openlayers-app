@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 
 const Popup = ({data, onClose}) => {
     const isOpen = Boolean(data);
+    
 
     return (
         
@@ -13,6 +14,8 @@ const Popup = ({data, onClose}) => {
                     X
                 </button>
                 {data && <h3>{data.name}</h3>}
+                {data && <img src={data.image}></img>}
+                
                 
             </div>
         </div>

@@ -68,7 +68,7 @@ const MapView = () => {
             const icon = document.createElement('div');
             icon.className='marker-icon';
             icon.textContent=item.icon;
-            icon.style.fontSize='24px';
+            icon.style.fontSize='40px';
             icon.style.color='black';
 
             markerDiv.appendChild(icon);
@@ -78,7 +78,8 @@ const MapView = () => {
                 
                 setactiveData({
                     name:item.name,
-                    icon:item.icon
+                    icon:item.icon,
+                    image:item.image
 
                 })
             })

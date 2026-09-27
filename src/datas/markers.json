@@ -4,20 +4,20 @@
     "name": "Budapest",
     "coordinates": [19.0402, 47.4979],
     "icon": "█",
-    "image": "images/1.jpg"
+    "image": "images/1.jpeg"
   },
   {
     "id": 2,
     "name": "Debrecen Nagyerdő",
     "coordinates": [21.6318, 47.5511],
-    "icon": "▲",
-    "image": "images/2.jpg"
+    "icon": "😀",
+    "image": "images/2.jpeg"
   },
   {
     "id": 3,
     "name": "Debrecen Főtér",
     "coordinates": [21.6259, 47.5316],
-    "icon": "●",
-    "image": "images/3.jpg"
+    "icon": "😝",
+    "image": "images/3.jpeg"
   }
 ]

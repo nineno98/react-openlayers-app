@@ -19,8 +19,8 @@
     pointer-events: auto;
 }
 .popup-card{
-    width: 40%;
-    height: 40%;
+    width: 50%;
+    height: 70%;
     border: 2px solid red;
     background-color: #fff;
     z-index: 120;
@@ -34,23 +34,34 @@
     border: 2px solid red;
     text-align: center;
 }
+.popup-card>img{
+    width: 80%;
+    height: 80%;
+}
 
 @keyframes pulse {
     0% {
         transform: scale(1);
         }
     50% {
-        transform: scale(1.1);
+        transform: scale(1.5);
         }
     100% {
         transform: scale(1);
         }
 }
 .marker{
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    transform-origin: center center;
-    animation: pulse 2s infinite;
+    
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    vertical-align: middle;
     justify-content: center;
+}
+.marker-icon{
+    cursor: pointer;
+    width: 90%;
+    height: 90%;
+    animation: pulse 2s infinite;
+    transform-origin: center center;
 }
