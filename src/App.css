@@ -19,24 +19,41 @@
     pointer-events: auto;
 }
 .popup-card{
-    width: 50%;
-    height: 70%;
+    width: 690px;
+    height: 90%;
     border: 2px solid red;
     background-color: #fff;
     z-index: 120;
+    text-align: center;
+    padding: 20px 20px;
     
 }
-.popup-card>h3{
+.title-container{
     border: 2px solid red;
     text-align: center;
+    padding: 0px 0px;
+    
 }
-.popup-card>button{
-    border: 2px solid red;
-    text-align: center;
+
+.popup-card>div>button{
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 24px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    padding: 0;
+    
 }
 .popup-card>img{
-    width: 80%;
-    height: 80%;
+    max-width: 100%;
+    
 }
 
 @keyframes pulse {
@@ -64,4 +81,10 @@
     height: 90%;
     animation: pulse 2s infinite;
     transform-origin: center center;
+}
+
+@media only screen and (max-width: 768px){
+    .popup-card{
+        width: 90%;
+    }
 }

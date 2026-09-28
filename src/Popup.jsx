@@ -10,10 +10,17 @@ const Popup = ({data, onClose}) => {
         
         <div className={`overlay ${isOpen ? 'open' : ''}`} onClick={onClose}>
             <div className='popup-card' onClick={(e) => e.stopPropagation()}>
-                <button type="button" onClick={onClose}>
-                    X
-                </button>
-                {data && <h3>{data.name}</h3>}
+                <div>
+                    <button type="button" onClick={onClose}>
+                        ✖️
+                    </button>
+                    <div className='title-container'>
+                        {data && <h1>{data.name}</h1>}
+                    </div>
+                    
+                </div>
+               
+                
                 {data && <img src={data.image}></img>}
                 
                 
