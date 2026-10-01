@@ -14,11 +14,13 @@ import Icon from 'ol/style/Icon'
 import viteLogo from './assets/vite.svg'
 import markerData from './datas/markers.json'
 import Popup from './Popup'
+import Calendar from './Calendar'
 
 const MapView = () => {
     const [markers, setmarkers] = useState(markerData);
     const mapElement = useRef(null);
     const [activeData, setactiveData] = useState(null);
+    const [activeCalendar, setactiveCalendar] = useState(null);
     useEffect(() => {
 
         
@@ -62,36 +64,40 @@ const MapView = () => {
 
         
         markers.map((item) => {
-            const markerDiv = document.createElement('div');
-            markerDiv.className = 'marker';
+            if(item.id <= 2){
+                const markerDiv = document.createElement('div');
+                markerDiv.className = 'marker';
 
-            const icon = document.createElement('div');
-            icon.className='marker-icon';
-            icon.textContent=item.icon;
-            icon.style.fontSize='40px';
-            icon.style.color='black';
+                const icon = document.createElement('div');
+                icon.className='marker-icon';
+                icon.textContent=item.icon;
+                icon.style.fontSize='40px';
+                icon.style.color='black';
 
-            markerDiv.appendChild(icon);
+                markerDiv.appendChild(icon);
 
-            markerDiv.addEventListener('click', (evt) => {
-                evt.stopPropagation();
-                
-                setactiveData({
-                    name:item.name,
-                    icon:item.icon,
-                    image:item.image
+                markerDiv.addEventListener('click', (evt) => {
+                    evt.stopPropagation();
+                    
+                    setactiveData({
+                        name:item.name,
+                        icon:item.icon,
+                        image:item.image,
+                        description:item.description
 
+                    })
                 })
-            })
 
-            const overlay = new Overlay({
-                element: markerDiv,
-                positioning: 'center-center',
-                position: fromLonLat(item.coordinates),
-                stopEvent: false
-            });
+                const overlay = new Overlay({
+                    element: markerDiv,
+                    positioning: 'center-center',
+                    position: fromLonLat(item.coordinates),
+                    stopEvent: false
+                });
 
-            map.addOverlay(overlay);
+                map.addOverlay(overlay);
+            }
+            
         });
 
         //****************************** */
@@ -106,7 +112,16 @@ const MapView = () => {
 
                 })
             }
-        })
+        });
+
+        function opencalendar(){
+            setTimeout(() => {
+                console.log("Timeout");
+                setactiveCalendar(1);
+            }, 6000);
+        }
+
+        opencalendar();
 
         return() => {
             map.setTarget(null);
@@ -117,6 +132,7 @@ const MapView = () => {
     <div>
         <div ref={mapElement} style={{width:"100%", height:"450px"}}/>
         <Popup data={activeData} onClose={() => setactiveData(null)}/>
+        <Calendar data={activeCalendar} onClose={() => setactiveCalendar(null)}/>
     </div>
     );
 }
