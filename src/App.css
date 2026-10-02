@@ -100,6 +100,44 @@
     animation: pulse 2s infinite;
     transform-origin: center center;
 }
+.calendar-card{
+    background-color: white;
+    border-radius: 20px;
+    width: 240px;
+    height: 240px;
+}
+.calendar-head{
+    display: flex;
+    background-color: red;
+    flex-direction: column;
+    border-radius: 20px 20px 0px 0px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    font-size: 22pt;
+    font-family: 'Courier New', Courier;
+    color: white;
+}
+.calendar-dots{
+    width: 25px;
+    height: 15px;
+    background-color: white;
+    border-radius: 0 0 5rem 5rem;
+    
+}
+.calendar-dots-container{
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    margin-top: 0px;
+    margin-bottom: 11px;
+}
+.calendar-body{
+    font-size: 92pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 @media only screen and (max-width: 768px){
     .popup-card{
