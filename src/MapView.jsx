@@ -20,7 +20,15 @@ const MapView = () => {
     const [markers, setmarkers] = useState(markerData);
     const mapElement = useRef(null);
     const [activeData, setactiveData] = useState(null);
-    const [activeCalendar, setactiveCalendar] = useState(null);
+    const [activeCalendar, setactiveCalendar] = useState(false);
+    const [location, setlocation] = useState([21.6391, 47.5316]);
+    const mapRef = useRef(null);
+
+    const handleCloseCalendar = () => {
+            setactiveCalendar(false);
+            setlocation([19.0402, 47.4979]);
+            console.log("handlecalendar")
+        }
     useEffect(() => {
 
         
@@ -56,11 +64,12 @@ const MapView = () => {
             target:mapElement.current,
             layers: [baseMap],
             view: new View({
-                center:fromLonLat([21.6391, 47.5316]),
+                center:fromLonLat(location),
                 zoom: 9,
             }),
         });
 
+        mapRef.current = map;
 
         
         markers.map((item) => {
@@ -117,22 +126,34 @@ const MapView = () => {
         function opencalendar(){
             setTimeout(() => {
                 console.log("Timeout");
-                setactiveCalendar(1);
+                setactiveCalendar(true);
+                
             }, 6000);
         }
 
         opencalendar();
 
+        
+
         return() => {
-            map.setTarget(null);
+            mapRef.current?.setTarget(null);
         };
  }, [markers]);
+
+    useEffect(() => {
+        if(!mapRef.current || !location) return;
+        mapRef.current.getView().animate({
+            center: fromLonLat(location),
+            zoom: 9,
+            duration: 1000,
+        })
+    }, [location]);
 
  return (
     <div>
         <div ref={mapElement} style={{width:"100%", height:"450px"}}/>
         <Popup data={activeData} onClose={() => setactiveData(null)}/>
-        <Calendar data={activeCalendar} onClose={() => setactiveCalendar(null)}/>
+        <Calendar data={activeCalendar} onClose={handleCloseCalendar}/>
     </div>
     );
 }
