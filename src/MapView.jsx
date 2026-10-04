@@ -20,9 +20,10 @@ const MapView = () => {
     const [markers, setmarkers] = useState(markerData);
     const mapElement = useRef(null);
     const [activeData, setactiveData] = useState(null);
-    const [activeCalendar, setactiveCalendar] = useState(false);
+    const [activeCalendar, setactiveCalendar] = useState(null);
     const [location, setlocation] = useState([21.6391, 47.5316]);
     const mapRef = useRef(null);
+    const [date, setdate] = useState(new Date());
 
     const handleCloseCalendar = () => {
             setactiveCalendar(false);
@@ -31,7 +32,9 @@ const MapView = () => {
         }
     useEffect(() => {
 
-        
+        const month = date.toLocaleString('default', { month: 'long' });
+        const day = date.toLocaleString('default', {day: '2-digit'});
+        console.log(month);
         
         const features = markers.map((item) => {
             const feature = new Feature({
@@ -125,8 +128,11 @@ const MapView = () => {
 
         function opencalendar(){
             setTimeout(() => {
-                console.log("Timeout");
-                setactiveCalendar(true);
+                
+                setactiveCalendar({
+                    month:month,
+                    day:day
+                });
                 
             }, 6000);
         }

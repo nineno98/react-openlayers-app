@@ -138,6 +138,9 @@
     align-items: center;
     justify-content: center;
 }
+.calendar-wrapper{
+    
+}
 
 @media only screen and (max-width: 768px){
     .popup-card{
