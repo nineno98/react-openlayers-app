@@ -15,6 +15,8 @@ import viteLogo from './assets/vite.svg'
 import markerData from './datas/markers.json'
 import Popup from './Popup'
 import Calendar from './Calendar'
+//import Partycles from 'partycles';
+import { useReward } from 'partycles';
 
 const MapView = () => {
     const [markers, setmarkers] = useState(markerData);
@@ -24,12 +26,18 @@ const MapView = () => {
     const [location, setlocation] = useState([21.6391, 47.5316]);
     const mapRef = useRef(null);
     const [date, setdate] = useState(new Date());
+    const closeCalendarRef = useRef(null);
+
+    
 
     const handleCloseCalendar = () => {
+            
             setactiveCalendar(false);
+            
             setlocation([19.0402, 47.4979]);
             console.log("handlecalendar")
         }
+
     useEffect(() => {
 
         const month = date.toLocaleString('default', { month: 'long' });
@@ -159,7 +167,7 @@ const MapView = () => {
     <div>
         <div ref={mapElement} style={{width:"100%", height:"450px"}}/>
         <Popup data={activeData} onClose={() => setactiveData(null)}/>
-        <Calendar data={activeCalendar} onClose={handleCloseCalendar}/>
+        <Calendar data={activeCalendar} onClose={handleCloseCalendar} ref={closeCalendarRef}/>
     </div>
     );
 }

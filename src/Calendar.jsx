@@ -1,19 +1,29 @@
 import React, { useState } from 'react'
+import { useReward } from 'partycles';
+import { useRef } from 'react';
 
 const Calendar = ({data, onClose}) => {
     const isOpen = Boolean(data);
-    const [isFlipped, setisFlipped] = useState(false);
-    function handleFlipp () {
+
+    const closeDivRef = useRef(null);
+  
+    const { reward } = useReward(closeDivRef, 'hearts', {
+        particleCount: 100,
+        spread: 100,
+        elementSize: 25,
+    });
+    const handleClose = () => {
+        reward();
         setTimeout(() => {
-            setisFlipped(!isFlipped);
-        }, 4000)
-        
+            onClose();
+        }, 20);
     }
-    handleFlipp();
+    
+    
     return (
-        <div className={`overlay ${isOpen ? 'open' : ''}`} onClick={onClose}>
+        <div className={`overlay ${isOpen ? 'open' : ''}`} onClick={handleClose}>
             <div className='calendar-wrapper'>
-                    <div className='calendar-card'>
+                    <div className='calendar-card' ref={closeDivRef}>
                     <div className='calendar-head'>
                         <div className='calendar-dots-container'>
                             <div className='calendar-dots'></div>
