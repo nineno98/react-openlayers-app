@@ -141,6 +141,15 @@
     justify-content: center;
 }
 
+.calendarCards-container{
+    display: flex;
+    flex-direction: row;
+}
+.CalendarCard-body{
+    width: 50px;
+    border: solid red 1px;
+}
+
 
 @media only screen and (max-width: 768px){
     .popup-card{

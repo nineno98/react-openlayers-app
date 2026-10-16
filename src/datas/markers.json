@@ -22,5 +22,173 @@
     "icon": "😝",
     "image": "images/3.jpeg",
     "description":""
+  },
+  {
+    "id": 4,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 5,
+    "name": "Debrecen Nagyerdő",
+    "coordinates": [21.6318, 47.5511],
+    "icon": "😀",
+    "image": "images/2.jpeg",
+    "description":""
+  },
+  {
+    "id": 6,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 7,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 8,
+    "name": "Debrecen Nagyerdő",
+    "coordinates": [21.6318, 47.5511],
+    "icon": "😀",
+    "image": "images/2.jpeg",
+    "description":""
+  },
+  {
+    "id": 9,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 10,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 11,
+    "name": "Debrecen Nagyerdő",
+    "coordinates": [21.6318, 47.5511],
+    "icon": "😀",
+    "image": "images/2.jpeg",
+    "description":""
+  },
+  {
+    "id": 12,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 13,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 14,
+    "name": "Debrecen Nagyerdő",
+    "coordinates": [21.6318, 47.5511],
+    "icon": "😀",
+    "image": "images/2.jpeg",
+    "description":""
+  },
+  {
+    "id": 15,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 16,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 17,
+    "name": "Debrecen Nagyerdő",
+    "coordinates": [21.6318, 47.5511],
+    "icon": "😀",
+    "image": "images/2.jpeg",
+    "description":""
+  },
+  {
+    "id": 18,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 19,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 20,
+    "name": "Debrecen Nagyerdő",
+    "coordinates": [21.6318, 47.5511],
+    "icon": "😀",
+    "image": "images/2.jpeg",
+    "description":""
+  },
+  {
+    "id": 21,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 22,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 23,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
+  },
+  {
+    "id": 24,
+    "name": "Debrecen Főtér",
+    "coordinates": [21.6259, 47.5316],
+    "icon": "😝",
+    "image": "images/3.jpeg",
+    "description":""
   }
 ]

@@ -16,14 +16,14 @@ const Calendar = ({data, onClose}) => {
         reward();
         setTimeout(() => {
             onClose();
-        }, 20);
+        }, 350);
     }
     
     
     return (
         <div className={`overlay ${isOpen ? 'open' : ''}`} onClick={handleClose}>
-            <div className='calendar-wrapper'>
-                    <div className='calendar-card' ref={closeDivRef}>
+            <div className='calendar-wrapper' ref={closeDivRef}>
+                    <div className='calendar-card' >
                     <div className='calendar-head'>
                         <div className='calendar-dots-container'>
                             <div className='calendar-dots'></div>
