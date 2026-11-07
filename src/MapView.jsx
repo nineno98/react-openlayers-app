@@ -18,6 +18,8 @@ import Calendar from './Calendar'
 //import Partycles from 'partycles';
 import { useReward } from 'partycles';
 import CalendarCards from './CalendarCards'
+import CalendarCard from './CalendarCard'
+
 
 const MapView = () => {
     const [markers, setmarkers] = useState(markerData);
@@ -30,6 +32,9 @@ const MapView = () => {
     const closeCalendarRef = useRef(null);
 
     
+    const handleClickOnCalendar = () => {
+
+    }
 
     const handleCloseCalendar = () => {
             
@@ -167,7 +172,12 @@ const MapView = () => {
  return (
     <div>
         <div ref={mapElement} style={{width:"100%", height:"450px"}}/>
-        <CalendarCards data={markerData}/>
+        <div className='calendarCards-container'>
+            {markers.map(card => (
+                <CalendarCard key={card.id} {...card}/>
+            ))}
+        </div>
+        
         <Popup data={activeData} onClose={() => setactiveData(null)}/>
         <Calendar data={activeCalendar} onClose={handleCloseCalendar} ref={closeCalendarRef}/>
     </div>
