@@ -33,15 +33,16 @@ const MapView = () => {
 
     
     const handleClickOnCalendar = () => {
-
+        console.log(card)
     }
 
     const handleCloseCalendar = () => {
             
             setactiveCalendar(false);
             
-            setlocation([19.0402, 47.4979]);
-            console.log("handlecalendar")
+            setlocation(markerData[activeCalendar.day*1 + 1].coordinates);
+            console.log(markerData[activeCalendar.day*1 + 1])
+            
         }
 
     useEffect(() => {
@@ -174,12 +175,13 @@ const MapView = () => {
         <div ref={mapElement} style={{width:"100%", height:"450px"}}/>
         <div className='calendarCards-container'>
             {markers.map(card => (
-                <CalendarCard key={card.id} {...card}/>
+                <CalendarCard key={card.id} {...card} onClick={handleClickOnCalendar}/>
             ))}
         </div>
         
         <Popup data={activeData} onClose={() => setactiveData(null)}/>
         <Calendar data={activeCalendar} onClose={handleCloseCalendar} ref={closeCalendarRef}/>
+            
     </div>
     );
 }
