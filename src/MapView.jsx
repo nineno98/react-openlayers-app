@@ -14,9 +14,6 @@ import Icon from 'ol/style/Icon'
 import viteLogo from './assets/vite.svg'
 import markerData from './datas/markers.json'
 import Popup from './Popup'
-import Calendar from './Calendar'
-//import Partycles from 'partycles';
-import { useReward } from 'partycles';
 import CalendarCards from './CalendarCards'
 import CalendarCard from './CalendarCard'
 
@@ -25,31 +22,27 @@ const MapView = () => {
     const [markers, setmarkers] = useState(markerData);
     const mapElement = useRef(null);
     const [activeData, setactiveData] = useState(null);
-    const [activeCalendar, setactiveCalendar] = useState(null);
     const [location, setlocation] = useState([21.6391, 47.5316]);
     const mapRef = useRef(null);
     const [date, setdate] = useState(new Date());
-    const closeCalendarRef = useRef(null);
-
     
-    const handleClickOnCalendar = () => {
-        console.log(card)
+
+    const visibleMarkers = markers.filter((marker) => Number(marker.id) < 10);
+
+    const handleClickOnCalendar = (coordinates) => {
+        console.log(coordinates);
+        setlocation(coordinates);
+
     }
 
-    const handleCloseCalendar = () => {
-            
-            setactiveCalendar(false);
-            
-            setlocation(markerData[activeCalendar.day*1 + 1].coordinates);
-            console.log(markerData[activeCalendar.day*1 + 1])
-            
-        }
+
 
     useEffect(() => {
 
+        
         const month = date.toLocaleString('default', { month: 'long' });
         const day = date.toLocaleString('default', {day: '2-digit'});
-        console.log(month);
+        
         
         const features = markers.map((item) => {
             const feature = new Feature({
@@ -90,8 +83,8 @@ const MapView = () => {
         mapRef.current = map;
 
         
-        markers.map((item) => {
-            if(item.id <= 2){
+        visibleMarkers.map((item) => {
+            
                 const markerDiv = document.createElement('div');
                 markerDiv.className = 'marker';
 
@@ -125,7 +118,7 @@ const MapView = () => {
                 map.addOverlay(overlay);
             }
             
-        });
+        );
 
         //****************************** */
 
@@ -141,20 +134,6 @@ const MapView = () => {
             }
         });
 
-        function opencalendar(){
-            setTimeout(() => {
-                
-                setactiveCalendar({
-                    month:month,
-                    day:day
-                });
-                
-            }, 6000);
-        }
-
-        opencalendar();
-
-        
 
         return() => {
             mapRef.current?.setTarget(null);
@@ -174,13 +153,13 @@ const MapView = () => {
     <div>
         <div ref={mapElement} style={{width:"100%", height:"450px"}}/>
         <div className='calendarCards-container'>
-            {markers.map(card => (
-                <CalendarCard key={card.id} {...card} onClick={handleClickOnCalendar}/>
+            {visibleMarkers.map(card => (
+                <CalendarCard key={card.id} {...card} onClick={() => handleClickOnCalendar(card.coordinates)}/>
             ))}
         </div>
         
         <Popup data={activeData} onClose={() => setactiveData(null)}/>
-        <Calendar data={activeCalendar} onClose={handleCloseCalendar} ref={closeCalendarRef}/>
+        
             
     </div>
     );

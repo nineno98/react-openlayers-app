@@ -144,10 +144,14 @@
 .calendarCards-container{
     display: flex;
     flex-direction: row;
+    
+    
 }
 .CalendarCard-body{
     width: 50px;
     border: solid red 1px;
+    cursor: pointer;
+    text-align: center;
 }
 
 
