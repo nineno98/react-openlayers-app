@@ -32,7 +32,7 @@
     
 }
 .title-container>h1{
-    /*border: 2px solid red;*/
+    
     text-align: center;
     margin-top: 0px;
     margin-bottom: 5px;
@@ -144,14 +144,23 @@
 .calendarCards-container{
     display: flex;
     flex-direction: row;
-    
+    flex-wrap: nowrap;
+    gap: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
     
 }
 .CalendarCard-body{
-    width: 50px;
-    border: solid red 1px;
+    width: 80px;
+    height: 80px;
+    border: solid black 1px;
     cursor: pointer;
     text-align: center;
+    background-image: url("../public/backgrounds/front_side_card.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    
+    flex-shrink: 0;
 }
 
 

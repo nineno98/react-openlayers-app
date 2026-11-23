@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Map from 'ol/Map.js'
-import View from 'ol/View.js'
+import View, { getView } from 'ol/View.js'
 import TileLayer from 'ol/layer/Tile.js'
 import OSM from "ol/source/OSM"
 import 'ol/ol.css'
@@ -27,11 +27,11 @@ const MapView = () => {
     const [date, setdate] = useState(new Date());
     
 
-    const visibleMarkers = markers.filter((marker) => Number(marker.id) < 10);
+    const visibleMarkers = markers.filter((marker) => Number(marker.id) <= date.getDate());
 
     const handleClickOnCalendar = (coordinates) => {
-        console.log(coordinates);
         setlocation(coordinates);
+        
 
     }
 
@@ -142,11 +142,21 @@ const MapView = () => {
 
     useEffect(() => {
         if(!mapRef.current || !location) return;
-        mapRef.current.getView().animate({
-            center: fromLonLat(location),
-            zoom: 9,
-            duration: 1000,
-        })
+        
+        mapRef.current.getView().animate(
+            {
+                zoom: 9,
+                duration: 700,
+            },
+            {
+                center: fromLonLat(location),
+                duration: 1000,
+            },
+            {
+                zoom: 15,
+                duration: 700,
+            }
+        )
     }, [location]);
 
  return (
