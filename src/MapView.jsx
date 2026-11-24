@@ -14,7 +14,6 @@ import Icon from 'ol/style/Icon'
 import viteLogo from './assets/vite.svg'
 import markerData from './datas/markers.json'
 import Popup from './Popup'
-import CalendarCards from './CalendarCards'
 import CalendarCard from './CalendarCard'
 
 
